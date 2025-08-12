@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishnu Vinayan Portfolio</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #111;
+      padding: 10px 0;
+      text-align: right;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #8B0000;
+    }
+    section {
+      padding: 100px 20px;
+      max-width: 1000px;
+      margin: auto;
+      scroll-margin-top: 100px;
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+    /* Animation styles */
+    .slide-left { transform: translateX(-100px); }
+    .slide-right { transform: translateX(100px); }
+    .slide-up { transform: translateY(100px); }
+    .zoom-in { transform: scale(0.9); }
+    section.visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    h1 {
+      color: #8B0000;
+      font-size: 3rem;
+    }
+    h2 {
+      color: #8B0000;
+      font-size: 2rem;
+    }
+    h3 {
+      color: #8B0000;
+    }
+    .quote {
+      font-size: 1.3rem;
+      margin-top: 10px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #projects img {
+      width: 500px;
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+    #projects img:hover {
+      transform: scale(1.05);
+    }
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(139,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" style="text-align:center; padding-top:120px;" class="slide-up">
+    <h1>Vishnu Vinayan</h1>
+    <p class="quote">Passionate about crafting engaging and functional digital experiences, I turn every new skill into an opportunity to innovate. Eager to grow, create, and bring impactful ideas to life.</p>
+  </section>
+
+  <section id="about" class="slide-left">
+    <h2>About Me</h2>
+    <p style="font-size: 1.2rem;">
+      I am Vishnu Vinayan, currently pursuing my BCA (Bachelor of Computer Applications) at Kristu Jayanti Deemed to be University.
+      A quick learner with a strong passion for technology, I enjoy exploring new tools and techniques to solve problems creatively.
+      My technical skill set includes Python, SQL, HTML, C programming, and VB.NET, which I actively use to build projects and sharpen my abilities.
+      Beyond academics, I enjoy working in collaborative environments, learning from others, and taking on challenges that push me out of my comfort zone.
+    </p>
+  </section>
+
+  <section id="projects" class="slide-right">
+    <h2>Projects</h2>
+    <div class="project-container zoom-in">
+      <img src="Project pic 1.png" alt="Custom Rigs Project">
+      <div>
+        <h3>Custom Rigs – Custom PC Builder Desktop Software</h3>
+        <p style="font-size: 1.1rem;">
+          A desktop application that enables users to select PC components and build their own custom computers.
+          It displays detailed specifications and prices for each part, calculates the total cost, and allows easy comparison of builds.
+          Designed for use in computer shops to assist customers in planning and pricing their custom PCs efficiently.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="slide-up">
+    <h2>My Resume</h2>
+    <iframe src="Vishnu_V_Resume.pdf"></iframe>
+  </section>
+
+  <section id="contact" class="slide-up">
+    <h2>Contact Me</h2>
+    <p style="font-size: 1.2rem;">You can connect me through</p>
+    <p>📧 Email: <a href="mailto:vishnuvinayang@gmail.com" style="color:#8B0000;">vishnuvinayang@gmail.com</a></p>
+    <p>📞 Phone: <a href="tel:+917356509597" style="color:#8B0000;">+91 7356509597</a></p>
+    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/vishnu-vinayan-6a886333a/" style="color:#8B0000;" target="_blank">Vishnu Vinayan</a></p>
+  </section>
+
+  <script>
+    // Intersection Observer for animations
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
